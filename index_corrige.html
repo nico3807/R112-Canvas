@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TD2 - Dessin avec canvas</title>
+    <style>
+      /* Style simple pour centrer le contenu et améliorer le look */
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #0d1117; /* Fond sombre */
+        color: #ffffff;
+        padding: 20px;
+      }
+      canvas {
+        box-shadow: 0 0 15px rgba(0, 204, 255, 0.5); /* Effet lumineux */
+      }
+      #controls {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #1a1a2e;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🌀 Écho Visuel Dynamique (Orbitron)</h1>
+
+    <div id="controls">
+      <label for="vibrationSelector">
+        Intensité / Rayon Maximal (50 à 250):
+      </label>
+      <input
+        id="vibrationSelector"
+        min="50"
+        max="250"
+        value="150"
+        type="range"
+        oninput="lancerAnimation()"
+      />
+    </div>
+
+    <canvas
+      id="echoCanvas"
+      width="500"
+      height="500"
+      style="border: 2px solid #00ccff; background-color: #1a1a2e"
+    >
+    </canvas>
+
+    <footer>
+      <p>© 2025 - BUT MMI Béziers - MAURIN N.</p>
+      <p>R1.12 Développement Web</p>
+    </footer>
+
+    <script src="script_corrige.js"></script>
+  </body>
+</html>
