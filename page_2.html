@@ -19,50 +19,108 @@
       <hr />
 
       <section id="skeleton-function">
-        <h2>Squelette de la Fonction 'dessinerCercle'</h2>
+        <h2>
+          Q1. Squelette de la Fonction
+          <strong><em>'dessinerCercle'</em></strong>
+        </h2>
         <p>
-          Définissez une fonction nommée 'dessinerCercle' qui accepte quatre
-          paramètres : 'x', 'y', 'rayon', et 'couleur'.
+          Définissez une fonction nommée '<strong>dessinerCercle</strong>' qui
+          accepte quatre paramètres : <strong>'x'</strong>,
+          <strong>'y'</strong>, <strong>'rayon'</strong>, et
+          <strong>'couleur'</strong>.
         </p>
+
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe pour la fonction
+          </button>
+          <div class="code-content">
+            <p>Rappelez-vous la syntaxe d'une fonction avec paramètres :</p>
+            <pre>
+<code>function nomDeMaFonction(param1, param2, ...) {
+  // Votre logique
+}</code></pre>
+          </div>
+        </div>
       </section>
 
       <hr />
 
       <section id="trace-style">
-        <h2>Tracé et Style</h2>
+        <h2>Q2. Tracé et Style du Cercle</h2>
         <p>
-          En HTML5 Canvas, un dessin s'effectue en démarrant un chemin
-          ('beginPath()'), en définissant la forme ('arc()'), puis en appliquant
-          le style ('strokeStyle', 'lineWidth') avant de tracer le contour
-          ('stroke()').
+          En HTML5 Canvas, un dessin suit généralement quatre étapes clés :
+          démarrer un chemin, définir la forme, appliquer le style, puis tracer.
         </p>
         <p>
-          <strong>Rappel :</strong> La fonction 'arc()' utilise les coordonnées
-          du centre ('x', 'y'), le 'rayon', l'angle de départ et l'angle de fin.
-          Pour un cercle complet, l'angle de fin est '2 * Math.PI' (360°).
+          La fonction 'arc()' permet de dessiner une partie ou la totalité d'un
+          cercle.
         </p>
-        <ol start="2">
-          <li>À l'intérieur de la fonction, ajoutez les étapes de dessin :</li>
+        <ul>
+          <li>La méthode '<strong>beginPath()</strong>' prépare le canvas.</li>
+          <li>
+            La méthode '<strong>stroke()</strong>' applique le tracé du chemin.
+          </li>
+          <li>
+            Les angles sont en <strong>radians</strong> (un cercle complet vaut
+            <code>2 * Math.PI</code>).
+          </li>
+        </ul>
+
+        <ol>
+          <li>À l'intérieur de la fonction, ajoutez les étapes de dessin.</li>
+          <li>
+            Utilisez les paramètres ('<strong>x</strong>', '<strong>y</strong>',
+            '<strong>rayon</strong>', '<strong>couleur</strong>') pour définir
+            votre cercle.
+          </li>
         </ol>
+
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe pour le tracé du cercle
+          </button>
+          <div class="code-content">
+            <p>
+              Pour appliquer la couleur et le tracé, vous utiliserez des
+              propriétés comme '<strong>strokeStyle</strong>' et
+              '<strong>lineWidth</strong>', et les méthodes
+              '<strong>beginPath()</strong>', '<strong>arc(...)</strong>', et
+              '<strong>stroke()</strong>'.
+            </p>
+            <pre>
+<code>// Exemples de méthodes à utiliser :
+ctx.beginPath();
+ctx.arc(..., ..., ..., 0, 2 * Math.PI); 
+ctx.strokeStyle = ...; 
+ctx.lineWidth = 2;
+ctx.stroke();</code></pre>
+          </div>
+        </div>
       </section>
 
       <hr />
 
       <section id="first-test">
-        <h2>Premier Test</h2>
+        <h2>Q3. Premier Test</h2>
         <p>
-          Appelez la fonction 'dessinerCercle' juste après sa définition pour
-          vérifier qu'elle fonctionne.
+          Appelez la fonction '<strong>dessinerCercle</strong>' juste après sa
+          définition pour vérifier qu'elle fonctionne. Le centre doit être à
+          (250, 250), le rayon de 100, et la couleur de votre choix (par
+          exemple, '<strong>#00CCFF</strong>').
         </p>
-        <ul>
-          <li>
-            <strong>Centre :</strong> (250, 250) (milieu du canvas 500x500).
-          </li>
-          <li><strong>Rayon :</strong> 100.</li>
-          <li>
-            <strong>Couleur :</strong> '#00CCFF' (un bleu électrique stylé).
-          </li>
-        </ul>
+
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice pour l'appel de fonction
+          </button>
+          <div class="code-content">
+            <p>Comment appelle-t-on une fonction avec des arguments ?</p>
+            <pre>
+<code>// Exemple :
+nomDeMaFonction(valeur1, valeur2, valeur3, valeur4);</code></pre>
+          </div>
+        </div>
       </section>
 
       <hr />
@@ -83,5 +141,6 @@
         </p>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -340,25 +340,118 @@ body.dark-theme .theme-toggle-button:hover {
 
 /* --- AJOUTS SPÉCIFIQUES AUX PAGES PÉDAGOGIQUES (TP) --- */
 
-/* Style pour les blocs de code */
 .code-step {
-  background-color: #e9ecef;
+  /* Retire le padding et border-left du conteneur parent */
   margin-bottom: 10px;
-  padding: 15px;
-  border-left: 5px solid #007bff; /* Bleu VScode / Accentuation */
   border-radius: 4px;
+  background-color: #f8f9fa; /* Fond très clair pour le conteneur */
+}
+
+/* Styles du contenu du bloc de code (masqué par défaut) */
+.code-content {
+  /* Masqué par défaut */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Animation douce */
+
+  /* Style visuel de l'ancien .code-step */
+  padding: 0 15px 0 15px; /* Padding ajusté pour l'animation */
+  border-left: 5px solid #007bff; /* Barre VScode / Accentuation */
   font-family: monospace;
 }
-.code-step strong {
-  color: #007bff;
+
+/* Classe JavaScript appliquée au contenu pour le déplier */
+.code-content.is-expanded {
+  max-height: 500px; /* Grande valeur pour déplier, adapter si nécessaire */
+  padding-bottom: 15px; /* Rétablit le padding du bas */
+  transition: max-height 0.5s ease-in;
 }
-.code-step pre {
+
+/* Style du bouton de bascule */
+.toggle-button-code {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  background-color: #e9ecef; /* Fond clair */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  transition: background-color 0.2s;
+}
+
+.toggle-button-code:hover {
+  background-color: #dee2e6;
+}
+
+/* Style pour le titre du code (facultatif mais utile) */
+.code-content p {
+  padding-top: 15px;
+}
+
+/* --- NOUVEAUX STYLES SPÉCIFIQUES AUX PAGES PÉDAGOGIQUES (TP) --- */
+
+/* La classe .code-step devient un conteneur d'organisation du bouton et du contenu */
+.code-step {
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f8f9fa; /* Fond très clair pour le conteneur */
+}
+
+/* Styles du contenu du bloc de code (masqué par défaut) */
+.code-content {
+  /* Masqué par défaut */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Animation douce */
+
+  /* Style visuel du bloc de code (barre latérale) */
+  padding: 0 15px 0 15px;
+  border-left: 5px solid #007bff; /* Barre VScode / Accentuation */
+  font-family: monospace;
+}
+
+/* Classe JavaScript appliquée au contenu pour le déplier */
+.code-content.is-expanded {
+  max-height: 600px; /* Grande valeur pour déplier les blocs de code */
+  padding-bottom: 15px; /* Rétablit le padding du bas */
+  transition: max-height 0.5s ease-in;
+}
+
+/* Style du bouton de bascule */
+.toggle-button-code {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  background-color: #e9ecef; /* Fond clair */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  transition: background-color 0.2s;
+}
+
+.toggle-button-code:hover {
+  background-color: #dee2e6;
+}
+
+/* Ajustement des marges internes du contenu masqué */
+.code-content p {
+  padding-top: 15px;
+}
+
+/* Style pour les balises <pre> et <code> dans le bloc de code */
+.code-content pre {
   background-color: #000;
   padding: 10px;
   border-radius: 4px;
   overflow-x: auto;
 }
-.code-step code {
+.code-content pre code {
   font-weight: normal;
   color: #fff;
   background-color: transparent;

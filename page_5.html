@@ -19,82 +19,103 @@
       <hr />
 
       <section id="dynamic-center">
-        <h2>Le Centre Dynamique</h2>
+        <h2>Q10. Le Centre Dynamique</h2>
         <p>
-          Actuellement, les coordonnées '(250, 250)' sont utilisées pour le
-          centre du dessin. Si la taille du canvas change, le dessin ne sera
-          plus centré.
-        </p>
-        <p>
-          Modifiez les appels à 'dessinerEcho()' pour utiliser les propriétés
-          dynamiques du canvas, garantissant que le dessin reste centré.
+          Actuellement, vous utilisez des valeurs fixes ('<strong
+            >250, 250</strong
+          >') pour le centre. Modifiez l'appel à
+          '<strong>dessinerEcho()</strong>' pour utiliser les propriétés
+          dynamiques du canvas, garantissant que le dessin reste centré quelle
+          que soit la taille du canvas.
         </p>
         <ul>
-          <li><strong>Centre X :</strong> 'monCanevas.width / 2'</li>
-          <li><strong>Centre Y :</strong> 'monCanevas.height / 2'</li>
+          <li>
+            <strong>Centre X :</strong> La moitié de la largeur du canvas.
+          </li>
+          <li>
+            <strong>Centre Y :</strong> La moitié de la hauteur du canvas.
+          </li>
         </ul>
+
         <div class="code-step">
-          <p>Fonction 'lancerAnimation' mise à jour :</p>
-          <pre>
-<code>function lancerAnimation() {
-  ctx.clearRect(0, 0, monCanevas.width, monCanevas.height);
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe pour les coordonnées dynamiques
+          </button>
+          <div class="code-content">
+            <p>
+              Rappelez-vous que les propriétés '<strong>width</strong>' et
+              '<strong>height</strong>' de la variable
+              '<strong>monCanevas</strong>' sont disponibles :
+            </p>
+            <pre>
+<code>const centreX = monCanevas.width / 2;
+const centreY = monCanevas.height / 2;
 
-  const centreX = monCanevas.width / 2;
-  const centreY = monCanevas.height / 2;
-  const intensite = document.getElementById('vibrationSelector').value;
-
-  // Utilisation des coordonnées dynamiques (centreX, centreY)
-  dessinerEcho(centreX, centreY, intensite, 8); 
-}</code></pre>
+// Puis appelez :
+dessinerEcho(centreX, centreY, intensite, 8);</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="cleanup-init">
-        <h2>Nettoyage et Initialisation</h2>
+        <h2>Q11. Nettoyage et Initialisation</h2>
         <p>
           Pour s'assurer qu'un premier écho s'affiche dès le chargement de la
-          page, ajoutez un appel à 'lancerAnimation()' après la définition de
-          toutes vos fonctions dans 'script.js'.
+          page, vous devez ajouter un appel à la fonction
+          '<strong>lancerAnimation()</strong>' après la définition de toutes vos
+          fonctions dans '<strong>script.js</strong>'.
         </p>
+
         <div class="code-step">
-          <p>
-            Code à ajouter à la <strong>fin</strong> du fichier 'script.js' :
-          </p>
-          <pre>
-<code>// Initialiser le premier dessin au chargement de la page
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice pour le code d'initialisation
+          </button>
+          <div class="code-content">
+            <p>
+              C'est un simple appel de fonction à placer à la fin du fichier
+              'script.js' :
+            </p>
+            <pre>
+<code>// Appel final pour le lancement initial
 lancerAnimation();</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="aesthetic-challenge">
-        <h2>Amélioration Esthétique (Défi)</h2>
+        <h2>Défi : Amélioration Esthétique</h2>
         <p>
-          <strong>Défi :</strong> Modifiez la fonction 'dessinerCercle()' pour
-          utiliser non pas un tracé ('ctx.stroke()'), mais un remplissage
-          progressif ('ctx.fill()').
+          <strong>Défi :</strong> Modifiez la fonction
+          '<strong>dessinerCercle()</strong>' pour utiliser un
+          <strong>remplissage</strong> progressif
+          ('<strong>ctx.fill()</strong>') au lieu d'un tracé
+          ('<strong>ctx.stroke()</strong>').
         </p>
         <p>
-          En utilisant la même logique d'opacité, l'effet devient une "bulle"
-          colorée qui s'estompe. Vous devrez également ajuster la propriété
-          'ctx.fillStyle' au lieu de 'ctx.strokeStyle'.
+          Vous devrez remplacer '<strong>ctx.strokeStyle</strong>' par
+          '<strong>ctx.fillStyle</strong>' et changer la méthode
+          '<strong>ctx.stroke()</strong>' par '<strong>ctx.fill()</strong>'.
         </p>
-        <div class="code-step">
-          <p>
-            Modification de la fonction 'dessinerCercle' pour le remplissage :
-          </p>
-          <pre>
-<code>function dessinerCercle(x, y, rayon, couleur) {
-  ctx.beginPath();
-  ctx.arc(x, y, rayon, 0, 2 * Math.PI);
 
-  // CHANGEMENT : Remplissage (fill) au lieu du tracé (stroke)
-  ctx.fillStyle = couleur; 
-  ctx.fill(); // Utilisation de ctx.fill()
-}</code></pre>
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice sur les méthodes à modifier
+          </button>
+          <div class="code-content">
+            <p>
+              Quelles sont les lignes qui gèrent le style et l'application du
+              tracé/remplissage ?
+            </p>
+            <pre>
+<code>// Propriété à changer :
+ctx.strokeStyle = couleur;  // &lt;-- À modifier
+// Méthode à changer :
+ctx.stroke();             // &lt;-- À modifier</code></pre>
+          </div>
         </div>
       </section>
 
@@ -111,10 +132,11 @@ lancerAnimation();</code></pre>
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 - BUT MMI Béziers - MAURIN N.<br />
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

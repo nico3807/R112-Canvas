@@ -19,84 +19,130 @@
       <hr />
 
       <section id="add-cursor">
-        <h2>Ajout du Curseur HTML</h2>
+        <h2>Q7. Ajout du Curseur HTML</h2>
         <p>
-          Dans votre 'index.html', ajoutez un élément '<strong>&lt;input type="range"&gt;</strong>'
-          au-dessus du canvas. Cet élément permettra de contrôler
-          l'intensité (le rayon maximal) de l'écho.
+          Dans votre '<strong>index.html</strong>', ajoutez un élément '<strong
+            >&lt;input type="range"&gt;</strong
+          >' au-dessus du canvas. Cet élément permettra de contrôler l'intensité
+          (le rayon maximal) de l'écho.
         </p>
         <ol>
-          <li>Donnez-lui l'identifiant 'vibrationSelector'.</li>
           <li>
-            Fixez ses bornes : 'min="0" max="250"' et sa valeur initiale
-            'value="50"' (Note: le max a été ajusté à 250 pour coller à la moitié de la dimension du canvas 500x500).
+            Donnez-lui l'identifiant '<strong>vibrationSelector</strong>'.
           </li>
           <li>
-            Ajoutez l'attribut 'oninput="lancerAnimation()"' pour exécuter une
-            fonction JavaScript à chaque mouvement du curseur.
+            Fixez ses bornes : '<strong>min="0" max="250"</strong>' et sa valeur
+            initiale '<strong>value="50"</strong>'.
+          </li>
+          <li>
+            Ajoutez l'attribut '<strong>oninput="lancerAnimation()"</strong>'
+            pour exécuter une fonction JavaScript à chaque mouvement du curseur.
           </li>
         </ol>
+
         <div class="code-step">
-          <p>Code HTML à ajouter dans 'index.html' (au-dessus du '<canvas>') :</p>
-          <pre>
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe HTML
+          </button>
+          <div class="code-content">
+            <p>
+              Rappelez-vous d'inclure le 'label' et la syntaxe complète de
+              l'input type="range" :
+            </p>
+            <pre>
 <code>&lt;label for="vibrationSelector"&gt;Intensité / Rayon Maximal (0 à 250):&lt;/label&gt;
 &lt;input type="range" 
-       id="vibrationSelector" 
-       min="0" 
-       max="250" 
-       value="50" 
-       oninput="lancerAnimation()" /&gt; 
-&lt;!-- La balise &lt;canvas&gt; suit ici --&gt;</code></pre>
+       id="..." 
+       min="..." 
+       max="..." 
+       value="..." 
+       oninput="..." /&gt;</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="control-function">
-        <h2>La Fonction de Contrôle</h2>
+        <h2>Q8. La Fonction de Contrôle</h2>
         <p>
-          Définissez la fonction 'lancerAnimation()' dans 'script.js' qui lit
-          la valeur du curseur ('intensite') et appelle 'dessinerEcho()'.
+          Définissez la fonction '<strong>lancerAnimation()</strong>' dans
+          '<strong>script.js</strong>'. À l'intérieur, vous devez lire la valeur
+          actuelle du curseur et appeler la fonction
+          '<strong>dessinerEcho()</strong>' que nous avons créée.
         </p>
+        <ol>
+          <li>
+            Lisez la valeur du curseur en utilisant son ID et la propriété
+            '<strong>value</strong>'.
+          </li>
+          <li>
+            Appelez 'dessinerEcho()' avec cette nouvelle valeur comme rayon
+            maximal.
+          </li>
+        </ol>
+
         <div class="code-step">
-          <p>Code JavaScript de la fonction 'lancerAnimation' :</p>
-          <pre>
-<code>function lancerAnimation() {
-  // Lire la valeur actuelle du curseur
-  const intensite = document.getElementById('vibrationSelector').value;
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice pour la lecture et l'appel de fonction
+          </button>
+          <div class="code-content">
+            <p>
+              Rappelez-vous comment récupérer la valeur d'un élément par son ID
+              :
+            </p>
+            <pre>
+<code>function lancerAnimation() { 
+  const intensite = document.getElementById('vibrationSelector').value; 
   
-  // Appeler la fonction de dessin
-  dessinerEcho(250, 250, intensite, 8);
+  // N'oubliez pas le centre (250, 250) et le nombre de cercles (8) :
+  dessinerEcho(250, 250, intensite, 8); 
 }</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="clear-issue">
-        <h2>La Problématique du Nettoyage</h2>
+        <h2>Q9. La Problématique du Nettoyage</h2>
         <p>
-          Si vous testez le curseur à ce stade, vous constaterez que les dessins
-          précédents restent affichés, créant une trace. Il faut effacer le canvas
-          avant chaque nouveau dessin.
+          Si vous testez le curseur à ce stade, vous verrez que les dessins
+          précédents s'accumulent. Pour corriger cela, vous devez effacer tout
+          le canvas avant chaque nouveau dessin.
         </p>
         <p>
-          Ajoutez l'instruction 'ctx.clearRect()' au tout début de votre
-          fonction 'lancerAnimation()'.
+          Ajoutez l'instruction '<strong>ctx.clearRect()</strong>' au tout début
+          de votre fonction '<strong>lancerAnimation()</strong>'.
         </p>
-        <div class="code-step">
-          <p>Fonction 'lancerAnimation' avec nettoyage :</p>
-          <pre>
-<code>function lancerAnimation() {
-  // 1. Nettoyer le canvas (efface la zone de dessin)
-  ctx.clearRect(0, 0, monCanevas.width, monCanevas.height);
+        <ol>
+          <li>
+            La méthode 'clearRect' prend 4 arguments : les coordonnées de départ
+            '(<strong>x, y</strong>)' et les dimensions '(<strong
+              >width, height</strong
+            >)'.
+          </li>
+          <li>
+            Pour effacer tout le canvas, utilisez '<strong>(0, 0)</strong>' pour
+            le coin supérieur gauche et les dimensions totales du canvas.
+          </li>
+        </ol>
 
-  // 2. Lire la valeur du curseur
-  const intensite = document.getElementById('vibrationSelector').value; 
-  
-  // 3. Dessiner le nouvel écho
-  dessinerEcho(250, 250, intensite, 8); 
-}</code></pre>
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe pour le nettoyage
+          </button>
+          <div class="code-content">
+            <p>
+              Comment effacer du coin (0,0) à la largeur et hauteur maximales du
+              canvas :
+            </p>
+            <pre>
+<code>// Effacer le canvas :
+ctx.clearRect(0, 0, monCanevas.width, monCanevas.height); 
+
+// Placez cette ligne avant de lire 'intensite'.</code></pre>
+          </div>
         </div>
       </section>
 
@@ -107,16 +153,19 @@
           <a href="page_3.html">← Partie précédente (Effet d'Écho)</a>
         </div>
         <div class="back-to-menu">
-          <a href="page_5.html">→ Partie suivante (Conclusion et Améliorations)</a>
+          <a href="page_5.html"
+            >→ Partie suivante (Conclusion et Améliorations)</a
+          >
         </div>
       </div>
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 - BUT MMI Béziers - MAURIN N.<br />
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

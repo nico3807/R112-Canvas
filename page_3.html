@@ -11,80 +11,119 @@
       <header class="header">
         <h1>3. 🔊 Effet d'Écho (Boucle et Couleur)</h1>
         <p>
-          Nous allons créer l'effet d'écho visuel en utilisant une boucle 'for'
-          pour dessiner plusieurs cercles concentriques avec une opacité
-          dégressive.
+          Nous allons créer l'effet d'écho visuel en utilisant une boucle
+          '<strong>for</strong>' pour dessiner plusieurs cercles concentriques
+          avec une opacité dégressive.
         </p>
       </header>
 
       <hr />
 
       <section id="echo-function-loop">
-        <h2>Fonction 'dessinerEcho' et Boucle</h2>
+        <h2>Q4. Fonction '<strong>dessinerEcho</strong>' et Boucle</h2>
         <p>
-          Créez une fonction 'dessinerEcho(x, y, maxRayon, nbCercles)' et
-          initialisez une boucle 'for' qui tournera 'nbCercles' fois.
+          Créez une fonction '<strong
+            >dessinerEcho(x, y, maxRayon, nbCercles)</strong
+          >'. À l'intérieur, calculez d'abord l'écart entre chaque rayon, puis
+          initialisez une boucle '<strong>for</strong>' qui tournera
+          '<strong>nbCercles</strong>' fois.
         </p>
+
+        <ol>
+          <li>
+            Calculez la valeur de l'espacement constant entre les rayons
+            (l'<strong>écart</strong>).
+          </li>
+          <li>Initialisez la boucle 'for' de 0 jusqu'à 'nbCercles'.</li>
+        </ol>
+
         <div class="code-step">
-          <p>Squelette de la fonction 'dessinerEcho' :</p>
-          <pre>
-<code>function dessinerEcho(x, y, maxRayon, nbCercles) {
-  
-  // Calculer l'écart de rayon entre chaque cercle
-  let ecart = maxRayon / nbCercles;
-  
-  // Boucle pour dessiner chaque cercle
-  for (let i = 0; i < nbCercles; i++) {
-    // ... Logique de calcul du rayon et de l'opacité ici
-  }
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice de syntaxe pour la boucle 'for'
+          </button>
+          <div class="code-content">
+            <p>Comment calculer l'écart entre les rayons ?</p>
+            <pre>
+<code>// Rappel :
+let ecart = maxRayon / nbCercles;
+
+// Rappel de la syntaxe de boucle 'for' :
+for (let i = 0; i < nombre; i++) {
+  // ...
 }</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="radius-opacity-calc">
-        <h2>Calcul du Rayon et de l'Opacité</h2>
-        <p>
-          À chaque tour de boucle ('i'), nous devons calculer le rayon actuel et
-          ajuster l'opacité ('globalAlpha') pour créer l'effet d'estompage.
-        </p>
+        <h2>Q5. Calcul du Rayon et de l'Opacité Progressive</h2>
+        <p>À chaque tour de boucle ('i'), vous devez :</p>
         <ul>
-          <li><strong>Le rayon actuel</strong> diminue à chaque itération.</li>
           <li>
-            <strong>L'opacité</strong> augmente de 0 (transparent) à 1 (opaque).
+            Calculer le <strong>rayon actuel</strong> qui doit diminuer à chaque
+            itération. (Pensez à soustraire le produit de '<strong>i</strong>'
+            par l'écart).
+          </li>
+          <li>
+            Définir l'<strong>opacité</strong> progressive
+            (<code>ctx.globalAlpha</code>), qui doit aller de 0.0 (transparent,
+            pour le grand cercle extérieur) à 1.0 (opaque, pour le petit cercle
+            intérieur). (Pensez à diviser '<strong>i</strong>' par
+            '<strong>nbCercles</strong>').
+          </li>
+          <li>
+            Appeler la fonction '<strong>dessinerCercle()</strong>' avec les
+            bonnes valeurs.
           </li>
         </ul>
-        <div class="code-step">
-          <p>
-            Code complet de la boucle 'for' (à l'intérieur de 'dessinerEcho') :
-          </p>
-          <pre>
-<code>for (let i = 0; i < nbCercles; i++) {
-  // Calcul du rayon (décroissant)
-  let rayonActuel = maxRayon - (i * ecart);
-  
-  // Opacité progressive (croissante de 0.0 à 1.0)
-  ctx.globalAlpha = 0 + i / nbCercles;
-  
-  // Appel de la fonction de dessin du cercle
-  dessinerCercle(x, y, rayonActuel, '#00CCFF');
-}
 
-// Important : Réinitialiser l'opacité globale à 1 après la boucle (sinon tout le reste est transparent)
-ctx.globalAlpha = 1;</code></pre>
+        <div class="code-step">
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice pour le style et l'appel de fonction
+          </button>
+          <div class="code-content">
+            <p>
+              N'oubliez pas d'utiliser <code>ctx.globalAlpha</code> et de le
+              réinitialiser à '<strong>1</strong>' après la boucle.
+            </p>
+            <pre>
+<code>// Exemple de calcul de rayon (décroissant) :
+let rayonActuel = maxRayon - (i * ecart);
+
+// Exemple de propriété de style à utiliser avant l'appel :
+ctx.globalAlpha = i / nbCercles; 
+
+// Exemple d'appel :
+dessinerCercle(x, y, rayonActuel, '#00CCFF');</code></pre>
+          </div>
         </div>
       </section>
 
       <hr />
 
       <section id="test-echo">
-        <h2>Test de l'Écho</h2>
-        <p>Appelez la nouvelle fonction pour vérifier l'effet.</p>
+        <h2>Q6. Test de l'Écho</h2>
+        <p>
+          Appelez la nouvelle fonction 'dessinerEcho' juste après sa définition
+          pour vérifier l'effet. Testez par exemple un rayon maximal de 200
+          pixels, centré à (250, 250), avec 8 cercles.
+        </p>
+
         <div class="code-step">
-          <p>Appel de la fonction dans 'script.js' (après sa définition) :</p>
-          <pre>
-<code>dessinerEcho(250, 250, 200, 8); // Centre (250, 250), Rayon max 200, 8 cercles.</code></pre>
+          <button class="toggle-button-code" onclick="toggleCode(this)">
+            [ + ] Indice pour le test de la fonction
+          </button>
+          <div class="code-content">
+            <p>
+              Testez avec des valeurs simples et vérifiez le rendu dans le
+              navigateur :
+            </p>
+            <pre>
+<code>// Exemple d'appel :
+dessinerEcho(250, 250, 200, 8);</code></pre>
+          </div>
         </div>
       </section>
 
@@ -103,10 +142,11 @@ ctx.globalAlpha = 1;</code></pre>
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 - BUT MMI Béziers - MAURIN N.<br />
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
