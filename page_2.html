@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP Canvas - 2. Fonction de Dessin (Cercle)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>2. ✍️ Fonction de Dessin (Cercle)</h1>
+        <p>
+          Nous allons créer la fonction fondamentale de dessin du cercle, qui
+          servira de base à l'effet d'écho.
+        </p>
+      </header>
+
+      <hr />
+
+      <section id="skeleton-function">
+        <h2>Squelette de la Fonction `dessinerCercle`</h2>
+        <p>
+          Définissez une fonction nommée `dessinerCercle` qui accepte quatre
+          paramètres : `x`, `y`, `rayon`, et `couleur`[cite: 289].
+        </p>
+        <div class="code-step">
+          <p>
+            Début du script `script.js` (après la récupération du contexte) :
+          </p>
+          <pre>
+<code>function dessinerCercle(x, y, rayon, couleur) { // [cite: 290]
+  // Le code de dessin sera ici
+}</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="trace-style">
+        <h2>Tracé et Style</h2>
+        <p>
+          En HTML5 Canvas, un dessin s'effectue en démarrant un chemin
+          (`beginPath()`), en définissant la forme (`arc()`), puis en appliquant
+          le style (`strokeStyle`, `lineWidth`) avant de tracer le contour
+          (`stroke()`)[cite: 294, 295].
+        </p>
+        <p>
+          **Rappel :** La fonction `arc()` utilise les coordonnées du centre
+          (`x`, `y`), le `rayon`, l'angle de départ et l'angle de fin. Pour un
+          cercle complet, l'angle de fin est `2 * Math.PI` (360°)[cite: 299,
+          300, 308].
+        </p>
+        <ol start="2">
+          <li>
+            À l'intérieur de la fonction, ajoutez les étapes de dessin :
+            <div class="code-step">
+              <p>Code complet de la fonction `dessinerCercle` :</p>
+              <pre>
+<code>function dessinerCercle(x, y, rayon, couleur) {
+  // 1. Démarrer un nouveau chemin de tracé
+  ctx.beginPath(); // [cite: 307]
+  
+  // 2. Définir l'arc (cercle complet)
+  ctx.arc(x, y, rayon, 0, 2 * Math.PI); // [cite: 308]
+  
+  // 3. Appliquer le style de tracé
+  ctx.strokeStyle = couleur; // [cite: 310]
+  ctx.lineWidth = 2; // [cite: 311]
+  
+  // 4. Tracer le contour
+  ctx.stroke(); // [cite: 312]
+}</code></pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <hr />
+
+      <section id="first-test">
+        <h2>Premier Test</h2>
+        <p>
+          Appelez la fonction `dessinerCercle` juste après sa définition pour
+          vérifier qu'elle fonctionne[cite: 314].
+        </p>
+        <ul>
+          <li>
+            **Centre :** (250, 250) (milieu du canvas 500x500)[cite: 315].
+          </li>
+          <li>**Rayon :** 100[cite: 316].</li>
+          <li>
+            **Couleur :** '#00CCFF' (un bleu électrique stylé)[cite: 317].
+          </li>
+        </ul>
+        <div class="code-step">
+          <p>Appel de la fonction dans `script.js` :</p>
+          <pre>
+<code>dessinerCercle(250, 250, 100, '#00CCFF'); // [cite: 314]</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <div class="menu-buttons">
+        <div class="back-to-menu">
+          <a href="page_1.html">← Partie précédente (Préparation)</a>
+        </div>
+        <div class="back-to-menu">
+          <a href="page_3.html">→ Partie suivante (Effet d'Écho)</a>
+        </div>
+      </div>
+
+      <footer>
+        <p style="text-align: center; font-size: 0.9em; color: #666">
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          R1.12 Développement Web
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

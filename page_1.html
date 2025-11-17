@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP Canvas - 1. Préparation de l'Environnement</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>1. 🛠️ Préparation de l'Environnement</h1>
+        <p>
+          Cette partie consiste à créer la structure de base du projet, insérer
+          la balise `<canvas>` et récupérer son contexte de dessin en JavaScript.
+        </p>
+      </header>
+
+      <hr />
+
+      <section id="structure-base">
+        <h2>Structure de Base</h2>
+        <ol>
+          <li>
+            Créer un dossier pour ce TP et y ajouter un fichier
+            <code>index.html</code> et un fichier <code>script.js</code>
+            [cite: 268, 269].
+          </li>
+          <li>
+            Dans <code>index.html</code>, mettre en place la structure HTML de
+            base (`doctype`, `<head>`, `<body>`)[cite: 270].
+          </li>
+          <li>
+            Lier votre fichier <code>script.js</code> dans le HTML, juste avant
+            la balise fermante `</body>`[cite: 271].
+          </li>
+        </ol>
+      </section>
+
+      <hr />
+
+      <section id="canvas-setup">
+        <h2>Mise en Place du Canvas</h2>
+        <p>
+          Ajoutez la balise `<canvas>` dans votre `index.html`, à l'intérieur du
+          `<body>`[cite: 273].
+        </p>
+        <ol start="4">
+          <li>
+            Donnez-lui l'identifiant `echoCanvas`[cite: 274].
+          </li>
+          <li>
+            Fixez ses dimensions à `width="500"` et `height="500"`[cite: 275].
+          </li>
+          <li>
+            Ajoutez un style simple pour qu'il soit visible. Ce style donne un
+            fond sombre pour faire ressortir l'effet lumineux[cite: 277, 278].
+          </li>
+        </ol>
+        <div class="code-step">
+          <p>Code HTML à insérer dans `index.html` :</p>
+          <pre>
+<code>&lt;canvas 
+  id="echoCanvas" 
+  width="500" 
+  height="500"
+  style="border: 2px solid #333; background-color: #1a1a2e;"
+&gt;&lt;/canvas&gt;</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="context-retrieval">
+        <h2>Récupération du Contexte</h2>
+        <p>
+          Dans <code>script.js</code>, récupérez la référence à la balise
+          `<canvas>` et à son contexte de dessin 2D. Le contexte (`ctx`) est
+          l'élément qui permet de dessiner dans la zone[cite: 279, 284].
+        </p>
+        <div class="code-step">
+          <p>Code JavaScript à insérer dans `script.js` :</p>
+          <pre>
+<code>// Récupération de la référence à la balise &lt;canvas&gt;
+const monCanevas = document.getElementById('echoCanvas'); // [cite: 282]
+// Récupération du contexte de dessin 2D
+const ctx = monCanevas.getContext('2d'); // [cite: 283]</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <div class="menu-buttons">
+        <div class="back-to-menu">
+          <a href="index.html">↑ Retour au Menu du TP</a>
+        </div>
+        <div class="back-to-menu">
+          <a href="page_2.html">→ Partie suivante (Fonction de Dessin)</a>
+        </div>
+      </div>
+
+      <footer>
+        <p style="text-align: center; font-size: 0.9em; color: #666">
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          R1.12 Développement Web
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

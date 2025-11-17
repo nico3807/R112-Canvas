@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP Canvas - 4. Interactivité et Animation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>4. 🖱️ Interactivité et Animation</h1>
+        <p>
+          Cette partie connecte notre dessin au JavaScript en temps réel via un
+          curseur HTML et gère le rafraîchissement pour éviter les traces.
+        </p>
+      </header>
+
+      <hr />
+
+      <section id="add-cursor">
+        <h2>Ajout du Curseur HTML</h2>
+        <p>
+          Dans votre `index.html`, ajoutez un élément `<input type="range">`
+          au-dessus du canvas[cite: 344]. Cet élément permettra de contrôler
+          l'intensité (le rayon maximal) de l'écho.
+        </p>
+        <ol>
+          <li>
+            Donnez-lui l'identifiant `vibrationSelector`[cite: 345].
+          </li>
+          <li>
+            Fixez ses bornes : `min="0" max="250"` et sa valeur initiale
+            `value="50"` [cite: 346] (Note: le max a été ajusté à 250 pour coller à la moitié de la dimension du canvas 500x500).
+          </li>
+          <li>
+            Ajoutez l'attribut `oninput="lancerAnimation()"` pour exécuter une
+            fonction JavaScript à chaque mouvement du curseur[cite: 347].
+          </li>
+        </ol>
+        <div class="code-step">
+          <p>Code HTML à ajouter dans `index.html` (au-dessus du `<canvas>`) :</p>
+          <pre>
+<code>&lt;label for="vibrationSelector"&gt;Intensité / Rayon Maximal (0 à 250):&lt;/label&gt;
+&lt;input type="range" 
+       id="vibrationSelector" 
+       min="0" 
+       max="250" 
+       value="50" 
+       oninput="lancerAnimation()" /&gt; 
+&lt;!-- La balise &lt;canvas&gt; suit ici --&gt;</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="control-function">
+        <h2>La Fonction de Contrôle</h2>
+        <p>
+          Définissez la fonction `lancerAnimation()` dans `script.js` qui lit
+          la valeur du curseur (`intensite`) et appelle `dessinerEcho()`[cite: 349, 352].
+        </p>
+        <div class="code-step">
+          <p>Code JavaScript de la fonction `lancerAnimation` :</p>
+          <pre>
+<code>function lancerAnimation() { // [cite: 349]
+  // Lire la valeur actuelle du curseur
+  const intensite = document.getElementById('vibrationSelector').value; // [cite: 351]
+  
+  // Appeler la fonction de dessin
+  dessinerEcho(250, 250, intensite, 8); // [cite: 352]
+}</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="clear-issue">
+        <h2>La Problématique du Nettoyage</h2>
+        <p>
+          Si vous testez le curseur à ce stade, vous constaterez que les dessins
+          précédents restent affichés, créant une trace. Il faut effacer le
+          canvas avant chaque nouveau dessin[cite: 354].
+        </p>
+        <p>
+          Ajoutez l'instruction `ctx.clearRect()` au tout début de votre
+          fonction `lancerAnimation()`[cite: 355].
+        </p>
+        <div class="code-step">
+          <p>Fonction `lancerAnimation` avec nettoyage :</p>
+          <pre>
+<code>function lancerAnimation() {
+  // 1. Nettoyer le canvas (efface la zone de dessin)
+  ctx.clearRect(0, 0, monCanevas.width, monCanevas.height); // [cite: 356]
+
+  // 2. Lire la valeur du curseur
+  const intensite = document.getElementById('vibrationSelector').value; 
+  
+  // 3. Dessiner le nouvel écho
+  dessinerEcho(250, 250, intensite, 8); 
+}</code></pre>
+        </div>
+      </section>
+
+      <hr />
+
+      <div class="menu-buttons">
+        <div class="back-to-menu">
+          <a href="page_3.html">← Partie précédente (Effet d'Écho)</a>
+        </div>
+        <div class="back-to-menu">
+          <a href="page_5.html">→ Partie suivante (Conclusion et Améliorations)</a>
+        </div>
+      </div>
+
+      <footer>
+        <p style="text-align: center; font-size: 0.9em; color: #666">
+          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          R1.12 Développement Web
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
