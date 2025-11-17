@@ -11,7 +11,7 @@
       <header class="header">
         <h1>3. 🔊 Effet d'Écho (Boucle et Couleur)</h1>
         <p>
-          Nous allons créer l'effet d'écho visuel en utilisant une boucle `for`
+          Nous allons créer l'effet d'écho visuel en utilisant une boucle 'for'
           pour dessiner plusieurs cercles concentriques avec une opacité
           dégressive.
         </p>
@@ -20,22 +20,21 @@
       <hr />
 
       <section id="echo-function-loop">
-        <h2>Fonction `dessinerEcho` et Boucle</h2>
+        <h2>Fonction 'dessinerEcho' et Boucle</h2>
         <p>
-          Créez une fonction `dessinerEcho(x, y, maxRayon, nbCercles)` et
-          initialisez une boucle `for` qui tournera `nbCercles` fois[cite: 321,
-          322].
+          Créez une fonction 'dessinerEcho(x, y, maxRayon, nbCercles)' et
+          initialisez une boucle 'for' qui tournera 'nbCercles' fois.
         </p>
         <div class="code-step">
-          <p>Squelette de la fonction `dessinerEcho` :</p>
+          <p>Squelette de la fonction 'dessinerEcho' :</p>
           <pre>
-<code>function dessinerEcho(x, y, maxRayon, nbCercles) { // [cite: 323]
+<code>function dessinerEcho(x, y, maxRayon, nbCercles) {
   
   // Calculer l'écart de rayon entre chaque cercle
-  let ecart = maxRayon / nbCercles; // [cite: 324]
+  let ecart = maxRayon / nbCercles;
   
   // Boucle pour dessiner chaque cercle
-  for (let i = 0; i < nbCercles; i++) { // [cite: 325]
+  for (let i = 0; i < nbCercles; i++) {
     // ... Logique de calcul du rayon et de l'opacité ici
   }
 }</code></pre>
@@ -47,35 +46,33 @@
       <section id="radius-opacity-calc">
         <h2>Calcul du Rayon et de l'Opacité</h2>
         <p>
-          À chaque tour de boucle (`i`), nous devons calculer le rayon actuel et
-          ajuster l'opacité (`globalAlpha`) pour créer l'effet d'estompage
-          [cite: 330, 333].
+          À chaque tour de boucle ('i'), nous devons calculer le rayon actuel et
+          ajuster l'opacité ('globalAlpha') pour créer l'effet d'estompage.
         </p>
         <ul>
-          <li>Le **rayon actuel** diminue à chaque itération[cite: 332].</li>
+          <li><strong>Le rayon actuel</strong> diminue à chaque itération.</li>
           <li>
-            L'**opacité** augmente de 0 (transparent) à 1 (opaque)[cite: 333,
-            334].
+            <strong>L'opacité</strong> augmente de 0 (transparent) à 1 (opaque).
           </li>
         </ul>
         <div class="code-step">
           <p>
-            Code complet de la boucle `for` (à l'intérieur de `dessinerEcho`) :
+            Code complet de la boucle 'for' (à l'intérieur de 'dessinerEcho') :
           </p>
           <pre>
 <code>for (let i = 0; i < nbCercles; i++) {
   // Calcul du rayon (décroissant)
-  let rayonActuel = maxRayon - (i * ecart); // [cite: 332]
+  let rayonActuel = maxRayon - (i * ecart);
   
   // Opacité progressive (croissante de 0.0 à 1.0)
-  ctx.globalAlpha = 0 + i / nbCercles; // [cite: 334]
+  ctx.globalAlpha = 0 + i / nbCercles;
   
   // Appel de la fonction de dessin du cercle
-  dessinerCercle(x, y, rayonActuel, '#00CCFF'); // [cite: 335]
+  dessinerCercle(x, y, rayonActuel, '#00CCFF');
 }
 
 // Important : Réinitialiser l'opacité globale à 1 après la boucle (sinon tout le reste est transparent)
-ctx.globalAlpha = 1; // [cite: 338, 339]</code></pre>
+ctx.globalAlpha = 1;</code></pre>
         </div>
       </section>
 
@@ -83,11 +80,11 @@ ctx.globalAlpha = 1; // [cite: 338, 339]</code></pre>
 
       <section id="test-echo">
         <h2>Test de l'Écho</h2>
-        <p>Appelez la nouvelle fonction pour vérifier l'effet[cite: 336].</p>
+        <p>Appelez la nouvelle fonction pour vérifier l'effet.</p>
         <div class="code-step">
-          <p>Appel de la fonction dans `script.js` (après sa définition) :</p>
+          <p>Appel de la fonction dans 'script.js' (après sa définition) :</p>
           <pre>
-<code>dessinerEcho(250, 250, 200, 8); // Centre (250, 250), Rayon max 200, 8 cercles. // [cite: 337]</code></pre>
+<code>dessinerEcho(250, 250, 200, 8); // Centre (250, 250), Rayon max 200, 8 cercles.</code></pre>
         </div>
       </section>
 
@@ -106,7 +103,7 @@ ctx.globalAlpha = 1; // [cite: 338, 339]</code></pre>
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          © 2025 - BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>

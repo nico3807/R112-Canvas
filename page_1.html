@@ -12,7 +12,8 @@
         <h1>1. 🛠️ Préparation de l'Environnement</h1>
         <p>
           Cette partie consiste à créer la structure de base du projet, insérer
-          la balise `<canvas>` et récupérer son contexte de dessin en JavaScript.
+          la balise '<strong>&lt;canvas&gt;</strong>' et récupérer son contexte
+          de dessin en JavaScript.
         </p>
       </header>
 
@@ -23,16 +24,16 @@
         <ol>
           <li>
             Créer un dossier pour ce TP et y ajouter un fichier
-            <code>index.html</code> et un fichier <code>script.js</code>
-            [cite: 268, 269].
+            <code>index.html</code> et un fichier <code>script.js</code>.
           </li>
           <li>
             Dans <code>index.html</code>, mettre en place la structure HTML de
-            base (`doctype`, `<head>`, `<body>`)[cite: 270].
+            base ('<strong>&lt;doctype&gt;</strong>',
+            '<strong>&lt;head&gt;</strong>', '<strong>&lt;body&gt;</strong>').
           </li>
           <li>
             Lier votre fichier <code>script.js</code> dans le HTML, juste avant
-            la balise fermante `</body>`[cite: 271].
+            la balise fermante '<strong>&lt;/body&gt;</strong>'.
           </li>
         </ol>
       </section>
@@ -42,31 +43,17 @@
       <section id="canvas-setup">
         <h2>Mise en Place du Canvas</h2>
         <p>
-          Ajoutez la balise `<canvas>` dans votre `index.html`, à l'intérieur du
-          `<body>`[cite: 273].
+          Ajoutez la balise '<strong>&lt;canvas&gt;</strong>' dans votre
+          'index.html', à l'intérieur du '<strong>&lt;body&gt;</strong>'.
         </p>
         <ol start="4">
-          <li>
-            Donnez-lui l'identifiant `echoCanvas`[cite: 274].
-          </li>
-          <li>
-            Fixez ses dimensions à `width="500"` et `height="500"`[cite: 275].
-          </li>
+          <li>Donnez-lui l'identifiant 'echoCanvas'.</li>
+          <li>Fixez ses dimensions à 'width="500"' et 'height="500"'.</li>
           <li>
             Ajoutez un style simple pour qu'il soit visible. Ce style donne un
-            fond sombre pour faire ressortir l'effet lumineux[cite: 277, 278].
+            fond sombre pour faire ressortir l'effet lumineux.
           </li>
         </ol>
-        <div class="code-step">
-          <p>Code HTML à insérer dans `index.html` :</p>
-          <pre>
-<code>&lt;canvas 
-  id="echoCanvas" 
-  width="500" 
-  height="500"
-  style="border: 2px solid #333; background-color: #1a1a2e;"
-&gt;&lt;/canvas&gt;</code></pre>
-        </div>
       </section>
 
       <hr />
@@ -75,17 +62,9 @@
         <h2>Récupération du Contexte</h2>
         <p>
           Dans <code>script.js</code>, récupérez la référence à la balise
-          `<canvas>` et à son contexte de dessin 2D. Le contexte (`ctx`) est
-          l'élément qui permet de dessiner dans la zone[cite: 279, 284].
+          '<strong>&lt;canvas&gt;</strong>' et à son contexte de dessin 2D. Le
+          contexte ('ctx') est l'élément qui permet de dessiner dans la zone.
         </p>
-        <div class="code-step">
-          <p>Code JavaScript à insérer dans `script.js` :</p>
-          <pre>
-<code>// Récupération de la référence à la balise &lt;canvas&gt;
-const monCanevas = document.getElementById('echoCanvas'); // [cite: 282]
-// Récupération du contexte de dessin 2D
-const ctx = monCanevas.getContext('2d'); // [cite: 283]</code></pre>
-        </div>
       </section>
 
       <hr />
@@ -101,7 +80,7 @@ const ctx = monCanevas.getContext('2d'); // [cite: 283]</code></pre>
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          © 2025 - BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>

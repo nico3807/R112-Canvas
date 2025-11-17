@@ -21,25 +21,23 @@
       <section id="add-cursor">
         <h2>Ajout du Curseur HTML</h2>
         <p>
-          Dans votre `index.html`, ajoutez un élément `<input type="range">`
-          au-dessus du canvas[cite: 344]. Cet élément permettra de contrôler
+          Dans votre 'index.html', ajoutez un élément '<strong>&lt;input type="range"&gt;</strong>'
+          au-dessus du canvas. Cet élément permettra de contrôler
           l'intensité (le rayon maximal) de l'écho.
         </p>
         <ol>
+          <li>Donnez-lui l'identifiant 'vibrationSelector'.</li>
           <li>
-            Donnez-lui l'identifiant `vibrationSelector`[cite: 345].
+            Fixez ses bornes : 'min="0" max="250"' et sa valeur initiale
+            'value="50"' (Note: le max a été ajusté à 250 pour coller à la moitié de la dimension du canvas 500x500).
           </li>
           <li>
-            Fixez ses bornes : `min="0" max="250"` et sa valeur initiale
-            `value="50"` [cite: 346] (Note: le max a été ajusté à 250 pour coller à la moitié de la dimension du canvas 500x500).
-          </li>
-          <li>
-            Ajoutez l'attribut `oninput="lancerAnimation()"` pour exécuter une
-            fonction JavaScript à chaque mouvement du curseur[cite: 347].
+            Ajoutez l'attribut 'oninput="lancerAnimation()"' pour exécuter une
+            fonction JavaScript à chaque mouvement du curseur.
           </li>
         </ol>
         <div class="code-step">
-          <p>Code HTML à ajouter dans `index.html` (au-dessus du `<canvas>`) :</p>
+          <p>Code HTML à ajouter dans 'index.html' (au-dessus du '<canvas>') :</p>
           <pre>
 <code>&lt;label for="vibrationSelector"&gt;Intensité / Rayon Maximal (0 à 250):&lt;/label&gt;
 &lt;input type="range" 
@@ -57,18 +55,18 @@
       <section id="control-function">
         <h2>La Fonction de Contrôle</h2>
         <p>
-          Définissez la fonction `lancerAnimation()` dans `script.js` qui lit
-          la valeur du curseur (`intensite`) et appelle `dessinerEcho()`[cite: 349, 352].
+          Définissez la fonction 'lancerAnimation()' dans 'script.js' qui lit
+          la valeur du curseur ('intensite') et appelle 'dessinerEcho()'.
         </p>
         <div class="code-step">
-          <p>Code JavaScript de la fonction `lancerAnimation` :</p>
+          <p>Code JavaScript de la fonction 'lancerAnimation' :</p>
           <pre>
-<code>function lancerAnimation() { // [cite: 349]
+<code>function lancerAnimation() {
   // Lire la valeur actuelle du curseur
-  const intensite = document.getElementById('vibrationSelector').value; // [cite: 351]
+  const intensite = document.getElementById('vibrationSelector').value;
   
   // Appeler la fonction de dessin
-  dessinerEcho(250, 250, intensite, 8); // [cite: 352]
+  dessinerEcho(250, 250, intensite, 8);
 }</code></pre>
         </div>
       </section>
@@ -79,19 +77,19 @@
         <h2>La Problématique du Nettoyage</h2>
         <p>
           Si vous testez le curseur à ce stade, vous constaterez que les dessins
-          précédents restent affichés, créant une trace. Il faut effacer le
-          canvas avant chaque nouveau dessin[cite: 354].
+          précédents restent affichés, créant une trace. Il faut effacer le canvas
+          avant chaque nouveau dessin.
         </p>
         <p>
-          Ajoutez l'instruction `ctx.clearRect()` au tout début de votre
-          fonction `lancerAnimation()`[cite: 355].
+          Ajoutez l'instruction 'ctx.clearRect()' au tout début de votre
+          fonction 'lancerAnimation()'.
         </p>
         <div class="code-step">
-          <p>Fonction `lancerAnimation` avec nettoyage :</p>
+          <p>Fonction 'lancerAnimation' avec nettoyage :</p>
           <pre>
 <code>function lancerAnimation() {
   // 1. Nettoyer le canvas (efface la zone de dessin)
-  ctx.clearRect(0, 0, monCanevas.width, monCanevas.height); // [cite: 356]
+  ctx.clearRect(0, 0, monCanevas.width, monCanevas.height);
 
   // 2. Lire la valeur du curseur
   const intensite = document.getElementById('vibrationSelector').value; 
@@ -115,7 +113,7 @@
 
       <footer>
         <p style="text-align: center; font-size: 0.9em; color: #666">
-          © 2025 — BUT MMI Béziers - MAURIN N.<br />
+          © 2025 - BUT MMI Béziers - MAURIN N.<br />
           R1.12 Développement Web
         </p>
       </footer>
