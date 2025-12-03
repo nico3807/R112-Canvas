@@ -94,7 +94,38 @@ ctx.beginPath();
 ctx.arc(..., ..., ..., 0, 2 * Math.PI); 
 ctx.strokeStyle = ...; 
 ctx.lineWidth = 2;
-ctx.stroke();</code></pre>
+ctx.stroke();
+
+/*ctx.beginPath() :
+Rôle : Cette méthode démarre un nouveau chemin (path) dans le contexte de dessin.
+Pourquoi ? Sans beginPath(), les formes que tu dessines pourraient être reliées entre elles par des segments indésirables, car le contexte conserve le chemin précédent.
+
+ctx.arc(x, y, radius, startAngle, endAngle)
+
+Rôle : Dessine un arc (ou un cercle complet) sur le canvas.
+Paramètres :
+x : Coordonnée x du centre du cercle.
+y : Coordonnée y du centre du cercle.
+radius : Rayon du cercle.
+startAngle : Angle de départ en radians (0 = à droite du centre).
+endAngle : Angle de fin en radians.
+
+Pour un cercle complet : 0 à 2 * Math.PI.
+
+ctx.strokeStyle = ... :
+Rôle : Définit la couleur ou le style du contour (stroke) des formes.
+Valeurs possibles :
+
+Une couleur CSS ("red", "#00ff00", "rgba(0,0,255,0.5)").
+Un dégradé ou motif (via createLinearGradient ou createPattern).
+
+ctx.lineWidth = 2 :
+Rôle : Définit l’épaisseur du trait (en pixels) pour le contour.
+
+ctx.stroke() :
+Rôle : Dessine le contour du chemin actuel (celui défini par beginPath() et les méthodes comme arc()).
+Important : Si tu veux remplir la forme, tu utiliserais ctx.fill() à la place.*/
+</code></pre>
           </div>
         </div>
       </section>
